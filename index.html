@@ -101,19 +101,75 @@
             padding: 25px;
             border-top: 4px solid var(--primario-rojo);
             border-radius: 4px;
-            transition: 0.3s;
         }
 
-        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .card i { font-size: 30px; color: var(--primario-rojo); margin-bottom: 15px; }
-        .card h3 { margin: 10px 0; color: var(--gris-nav); }
-        .card p { font-size: 0.95rem; line-height: 1.5; color: #555; }
+        /* WIDGET DE CHAT SIMULADO */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            z-index: 2000;
+            display: none; /* Se activa con JS */
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
 
-        /* WHATSAPP */
+        .chat-header {
+            background: var(--gris-nav);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primario-rojo);
+        }
+
+        .chat-body {
+            height: 200px;
+            padding: 15px;
+            background: #fdfdfd;
+            font-size: 14px;
+            overflow-y: auto;
+        }
+
+        .message {
+            background: #eee;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 85%;
+            position: relative;
+        }
+
+        .typing-dots { font-style: italic; color: #888; font-size: 12px; }
+
+        .chat-footer {
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-footer a {
+            display: block;
+            background: #25D366;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* WHATSAPP IZQUIERDA */
         .whatsapp-btn {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 20px;
+            left: 20px;
             background-color: #25D366;
             color: white;
             padding: 15px 25px;
@@ -138,7 +194,6 @@
                 <button class="tab-btn" onclick="openTab(event, 'servicios')">Servicios</button>
                 <button class="tab-btn" onclick="openTab(event, 'contacto')">Contacto</button>
             </div>
-            
             <div class="logo-container">
                 <img src="logo_crw_brt.png.png" class="brand-logo" alt="Logo">
             </div>
@@ -146,40 +201,48 @@
     </nav>
 
     <section id="inicio" class="content-section active">
-        <h2>NOSOTROS</h2>
+        <h2>Le presentamos SmartPanics</h2>
         <video class="main-video" controls autoplay muted loop>
             <source src="presentacion app.mp4" type="video/mp4">
-            Tu navegador no soporta la reproducción de videos.
         </video>
-        <p>En <strong>Criminal Watch & Blackster</strong>, brindamos soluciones integrales de seguridad. Con nuestra tecnología, podrá mantener el control total de su hogar o empresa desde cualquier lugar.</p>
+        <p>En <strong>Criminal Watch & Blackster</strong>, brindamos soluciones integrales de seguridad.</p>
     </section>
 
     <section id="servicios" class="content-section">
         <h2>Nuestros Servicios</h2>
         <div class="services-grid">
             <div class="card">
-                <i class="fas fa-shield-alt"></i>
                 <h3>Seguridad Electrónica</h3>
-                <p>Implementación de cámaras de seguridad, cercado eléctrico, alarmas, sistemas GPS y monitoreo profesional 24/7.</p>
+                <p>Cámaras, cercado eléctrico, alarmas, GPS y monitoreo 24/7.</p>
             </div>
             <div class="card">
-                <i class="fas fa-user-secret"></i>
                 <h3>Peritaje Informático</h3>
-                <p>Investigación y análisis forense digital para la obtención de evidencia con validez técnica y legal.</p>
+                <p>Análisis forense digital.</p>
             </div>
             <div class="card">
-                <i class="fas fa-laptop-medical"></i>
-                <h3>Soporte Técnico Especializado</h3>
-                <p>Reparación de equipos de cómputo (Hardware) y venta de licencias de software original.</p>
+                <h3>Soporte Técnico</h3>
+                <p>Reparación de hardware y venta de software.</p>
             </div>
         </div>
     </section>
 
     <section id="contacto" class="content-section">
         <h2>Contacto</h2>
-        <p><i class="fas fa-envelope"></i> cw.blackster@outlook.com</p>
-        <p><i class="fas fa-phone"></i> 56 5786 3967</p>
+        <p>Email: cw.blackster@outlook.com</p>
     </section>
+
+    <div id="chatBox" class="chat-widget">
+        <div class="chat-header">
+            <span><i class="fas fa-user-tie"></i> Asesor en línea</span>
+            <button onclick="closeChat()" style="background:none; border:none; color:white; cursor:pointer;">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div id="typing" class="typing-dots">Asesor escribiendo...</div>
+        </div>
+        <div class="chat-footer">
+            <a href="https://wa.me/525657863967" target="_blank">Hablar con un asesor</a>
+        </div>
+    </div>
 
     <a href="https://wa.me/525657863967" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i> Chat de Ventas
@@ -204,6 +267,22 @@
             document.getElementById(tabName).style.display = "block";
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
+        }
+
+        // Lógica del Chat Simulado
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('chatBox').style.display = 'flex';
+                setTimeout(function() {
+                    document.getElementById('typing').style.display = 'none';
+                    let chatBody = document.getElementById('chatBody');
+                    chatBody.innerHTML += '<div class="message">Hola, soy un asesor de <b>Criminal Watch & Blackster</b>. ¿En qué puedo ayudarte hoy?</div>';
+                }, 2000);
+            }, 3000); // Se abre a los 3 segundos
+        };
+
+        function closeChat() {
+            document.getElementById('chatBox').style.display = 'none';
         }
     </script>
 </body>
