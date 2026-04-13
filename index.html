@@ -54,14 +54,13 @@
 
         .tab-btn.active { background-color: var(--primario-rojo); }
 
-        /* LOGO SUPERIOR DERECHA */
         .brand-logo {
             height: 55px;
             width: auto;
             display: block;
         }
 
-        /* CONTENIDO PRINCIPAL */
+        /* CONTENIDO */
         .content-section {
             display: none;
             max-width: 900px;
@@ -81,7 +80,6 @@
             margin-top: 0;
         }
 
-        /* ESTILO PARA EL VIDEO LOCAL */
         .main-video {
             width: 100%;
             height: auto;
@@ -95,6 +93,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
+            margin-top: 30px;
         }
 
         .card {
@@ -102,11 +101,15 @@
             padding: 25px;
             border-top: 4px solid var(--primario-rojo);
             border-radius: 4px;
+            transition: 0.3s;
         }
 
-        .card i { font-size: 30px; color: var(--primario-rojo); margin-bottom: 10px; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card i { font-size: 30px; color: var(--primario-rojo); margin-bottom: 15px; }
+        .card h3 { margin: 10px 0; color: var(--gris-nav); }
+        .card p { font-size: 0.95rem; line-height: 1.5; color: #555; }
 
-        /* WHATSAPP IZQUIERDA */
+        /* WHATSAPP */
         .whatsapp-btn {
             position: fixed;
             bottom: 30px;
@@ -144,32 +147,30 @@
 
     <section id="inicio" class="content-section active">
         <h2>Le presentamos SmartPanics</h2>
-        
         <video class="main-video" controls autoplay muted loop>
             <source src="presentacion app.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de videos.
         </video>
-
-        <p>En <strong>Criminal Watch & Blackster</strong>, revolucionamos su seguridad. Con la App SmartPanics, podrá enviar señales de emergencia atendidas por expertos, monitorear sus vehículos vía GPS y controlar sus alarmas en tiempo real directamente desde su smartphone.</p>
+        <p>En <strong>Criminal Watch & Blackster</strong>, brindamos soluciones integrales de seguridad. Con nuestra tecnología, podrá mantener el control total de su hogar o empresa desde cualquier lugar.</p>
     </section>
 
     <section id="servicios" class="content-section">
-        <h2>Servicios Profesionales</h2>
+        <h2>Nuestros Servicios</h2>
         <div class="services-grid">
             <div class="card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Seguridad Móvil</h3>
-                <p>App SmartPanics para protección individual y familiar 24/7.</p>
+                <i class="fas fa-shield-alt"></i>
+                <h3>Seguridad Electrónica</h3>
+                <p>Implementación de cámaras de seguridad, cercado eléctrico, alarmas, sistemas GPS y monitoreo profesional 24/7.</p>
             </div>
             <div class="card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Monitoreo GPS</h3>
-                <p>Localización en tiempo real de vehículos, flotas y seres queridos.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-search-plus"></i>
+                <i class="fas fa-user-secret"></i>
                 <h3>Peritaje Informático</h3>
-                <p>Análisis forense digital y recuperación de evidencia legal.</p>
+                <p>Investigación y análisis forense digital para la obtención de evidencia con validez técnica y legal.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-laptop-medical"></i>
+                <h3>Soporte Técnico Especializado</h3>
+                <p>Reparación de equipos de cómputo (Hardware) y venta de licencias de software original.</p>
             </div>
         </div>
     </section>
