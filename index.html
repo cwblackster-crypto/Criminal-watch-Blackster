@@ -1,106 +1,242 @@
-<section id="servicios" class="content-section">
-    <h2>Nuestros Servicios</h2>
-    <div class="services-grid">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criminal Watch & Blackster | Seguridad y Peritaje</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primario-rojo: #CC0000;
+            --gris-fondo: #121212; /* Fondo oscuro como en tu captura */
+            --gris-nav: #1a1a1a;
+            --blanco: #FFFFFF;
+            --texto-claro: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background-color: var(--gris-fondo);
+            color: var(--texto-claro);
+        }
+
+        /* NAVEGACIÓN */
+        nav {
+            background-color: var(--gris-nav);
+            border-bottom: 5px solid var(--primario-rojo);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .tab-btn {
+            padding: 20px 25px;
+            border: none;
+            background: none;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active { background-color: var(--primario-rojo); }
+
+        .brand-logo { height: 50px; padding: 5px; }
+
+        /* SECCIONES */
+        .content-section {
+            display: none;
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 20px;
+            animation: fadeIn 0.5s;
+        }
+
+        .content-section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        h2 { color: var(--blanco); border-left: 5px solid var(--primario-rojo); padding-left: 15px; }
+
+        /* INICIO */
+        .video-container { text-align: center; background: #000; border-radius: 8px; overflow: hidden; }
+        .main-video { width: 100%; max-height: 500px; }
+
+        /* SERVICIOS */
+        .services-grid { display: flex; flex-direction: column; gap: 40px; }
         
-        <div class="card card-wide">
-            <div class="card-header">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Seguridad Electrónica</h3>
+        .sub-services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .sub-service {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .sub-service:hover { border-color: var(--primario-rojo); transform: translateY(-5px); }
+
+        .service-img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .sub-service p { font-size: 0.9rem; line-height: 1.4; color: #ccc; }
+
+        /* WHATSAPP */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        footer { text-align: center; padding: 30px; color: #666; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="tabs-wrapper">
+                <button class="tab-btn active" onclick="openTab(event, 'inicio')">Inicio</button>
+                <button class="tab-btn" onclick="openTab(event, 'servicios')">Servicios</button>
+                <button class="tab-btn" onclick="openTab(event, 'contacto')">Contacto</button>
             </div>
+            <img src="logo_crw_brt.png.png" class="brand-logo" alt="Logo">
+        </div>
+    </nav>
+
+    <section id="inicio" class="content-section active">
+        <h2>¿Quiénes Somos?</h2>
+        <div class="video-container">
+            <video class="main-video" controls autoplay muted loop>
+                <source src="presentacion app.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p style="margin-top: 20px;">En <strong>Criminal Watch & Blackster</strong>, nos especializamos en soluciones integrales de seguridad electrónica y peritaje informático de última generación.</p>
+    </section>
+
+    <section id="servicios" class="content-section">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-grid">
             
-            <div class="sub-services-container">
-                <div class="sub-service">
-                    <img src="cctv.png" alt="Cámaras" class="service-img">
-                    <p><strong>Cámaras de Seguridad:</strong> Vigilancia en alta resolución y acceso remoto.</p>
-                </div>
-
-                <div class="sub-service">
-                    <img src="cercado electrico.png" alt="Cercado" class="service-img">
-                    <p><strong>Cercado Eléctrico:</strong> Protección perimetral activa con sensores de intrusión.</p>
-                </div>
-
-                <div class="sub-service">
-                    <img src="alarmas.png" alt="Alarmas" class="service-img">
-                    <p><strong>Alarmas:</strong> Sistemas inteligentes con alerta inmediata a dispositivos móviles.</p>
-                </div>
-
-                <div class="sub-service">
-                    <img src="GPS.png" alt="GPS" class="service-img">
-                    <p><strong>GPS:</strong> Localización y rastreo de vehículos o activos en tiempo real.</p>
-                </div>
-
-                <div class="sub-service">
-                    <img src="MONITOREO 247.png" alt="Monitoreo" class="service-img">
-                    <p><strong>Monitoreo 24/7:</strong> Vigilancia constante y respuesta ante emergencias.</p>
+            <div>
+                <h3>Seguridad Electrónica</h3>
+                <div class="sub-services-container">
+                    <div class="sub-service">
+                        <img src="cctv.png" alt="CCTV" class="service-img">
+                        <p><strong>Cámaras de Seguridad:</strong> Vigilancia en alta resolución y acceso remoto.</p>
+                    </div>
+                    <div class="sub-service">
+                        <img src="cercado electrico.png" alt="Cercado" class="service-img">
+                        <p><strong>Cercado Eléctrico:</strong> Protección perimetral activa con sensores.</p>
+                    </div>
+                    <div class="sub-service">
+                        <img src="alarmas.png" alt="Alarmas" class="service-img">
+                        <p><strong>Alarmas:</strong> Sistemas inteligentes con alerta inmediata al celular.</p>
+                    </div>
+                    <div class="sub-service">
+                        <img src="GPS.png" alt="GPS" class="service-img">
+                        <p><strong>GPS:</strong> Localización y rastreo de vehículos en tiempo real.</p>
+                    </div>
+                    <div class="sub-service">
+                        <img src="MONITOREO 247.png" alt="Monitoreo" class="service-img">
+                        <p><strong>Monitoreo 24/7:</strong> Vigilancia constante y respuesta inmediata.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="card card-wide">
-            <div class="card-header">
-                <i class="fas fa-search-plus"></i>
+            <div>
                 <h3>Peritaje Informático</h3>
-            </div>
-            <div class="sub-services-container">
-                <div class="sub-service">
-                    <img src="perito.png" alt="Perito Informático Especializado" class="service-img">
-                    <p>Análisis forense digital especializado para la obtención de evidencia técnica legal y recuperación de datos.</p>
+                <div class="sub-services-container" style="grid-template-columns: 1fr;">
+                    <div class="sub-service" style="display: flex; align-items: center; gap: 20px; text-align: left;">
+                        <img src="perito.png" alt="Peritaje" class="service-img" style="width: 300px; height: 180px;">
+                        <p>Análisis forense digital especializado para la obtención de evidencia técnica legal y recuperación de datos críticos.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="card card-wide">
-            <div class="card-header">
-                <i class="fas fa-tools"></i>
+            <div>
                 <h3>Reparación de Equipos y Software</h3>
-            </div>
-            <div class="sub-services-container">
-                <div class="sub-service">
-                    <img src="cpu.png" alt="Técnico Reparando CPU / Hardware" class="service-img">
-                    <p><strong>Reparación de Hardware:</strong> Mantenimiento preventivo y correctivo de equipos de cómputo.</p>
+                <div class="sub-services-container">
+                    <div class="sub-service">
+                        <img src="cpu.png" alt="Hardware" class="service-img">
+                        <p><strong>Reparación de Hardware:</strong> Mantenimiento preventivo y correctivo de computadoras.</p>
+                    </div>
+                    <div class="sub-service">
+                        <img src="software.png" alt="Software" class="service-img">
+                        <p><strong>Venta de Software:</strong> Licenciamiento original y configuraciones de sistemas.</p>
+                    </div>
                 </div>
-                <div class="sub-service">
-                    <img src="software.png" alt="Software" class="service-img">
-                    <p><strong>Venta de Software:</strong> Licenciamiento original y configuración de sistemas operativos.</p>
-                </div>
             </div>
-        </div>
-    </div>
-</section>
 
-<style>
-    /* Estilos para mantener la consistencia visual */
-    .services-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-    .sub-services-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-    }
-    .sub-service {
-        text-align: center;
-        background: #fdfdfd;
-        padding: 15px;
-        border-radius: 8px;
-        border: 1px solid #eaeaea;
-        transition: 0.3s;
-    }
-    .sub-service:hover {
-        border-color: var(--primario-rojo);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    .service-img {
-        width: 100%;
-        height: 140px;
-        object-fit: cover;
-        border-radius: 6px;
-        margin-bottom: 12px;
-    }
-    .card-wide {
-        width: 100%;
-    }
-</style>
+        </div>
+    </section>
+
+    <section id="contacto" class="content-section">
+        <h2>Contacto</h2>
+        <div style="background: #1e1e1e; padding: 30px; border-radius: 8px;">
+            <p><i class="fas fa-envelope" style="color: var(--primario-rojo);"></i> <strong>Email:</strong> cw.blackster@outlook.com</p>
+            <p><i class="fas fa-phone" style="color: var(--primario-rojo);"></i> <strong>Teléfono:</strong> 56 5786 3967</p>
+            <p><i class="fas fa-map-marker-alt" style="color: var(--primario-rojo);"></i> Atención profesional personalizada.</p>
+        </div>
+    </section>
+
+    <a href="https://wa.me/525657863967" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>&nbsp; Chat de Ventas
+    </a>
+
+    <footer>
+        &copy; 2026 Criminal Watch & Blackster
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("content-section");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+                x[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
