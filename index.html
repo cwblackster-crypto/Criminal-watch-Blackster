@@ -1,205 +1,82 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criminal Watch & Blackster | Seguridad y Peritaje</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primario-rojo: #CC0000;
-            --gris-fondo: #F0F0F0;
-            --gris-nav: #1a1a1a;
-            --blanco: #FFFFFF;
-            --texto: #222222;
-        }
-
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            background-color: var(--gris-fondo);
-            color: var(--texto);
-        }
-
-        /* BARRA DE NAVEGACIÓN */
-        nav {
-            background-color: var(--gris-nav);
-            border-bottom: 5px solid var(--primario-rojo);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .tabs-wrapper { display: flex; }
-
-        .tab-btn {
-            padding: 25px 20px;
-            border: none;
-            background: none;
-            color: white;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .tab-btn.active { background-color: var(--primario-rojo); }
-
-        .brand-logo {
-            height: 55px;
-            width: auto;
-            display: block;
-        }
-
-        /* CONTENIDO */
-        .content-section {
-            display: none;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px;
-            background-color: var(--blanco);
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .content-section.active { display: block; }
-
-        h2 { 
-            color: var(--primario-rojo); 
-            border-left: 6px solid var(--primario-rojo);
-            padding-left: 15px;
-            margin-top: 0;
-        }
-
-        .main-video {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            border: 2px solid #ddd;
-            margin-bottom: 20px;
-        }
-
-        /* SERVICIOS */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background-color: #f9f9f9;
-            padding: 25px;
-            border-top: 4px solid var(--primario-rojo);
-            border-radius: 4px;
-        }
-
-        .card i { font-size: 30px; color: var(--primario-rojo); margin-bottom: 15px; }
-        .card h3 { margin: 10px 0; font-size: 1.2rem; }
-
-        /* BOTÓN WHATSAPP */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-
-        footer { text-align: center; padding: 40px; color: #666; }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="nav-container">
-            <div class="tabs-wrapper">
-                <button class="tab-btn active" onclick="openTab(event, 'inicio')">Inicio</button>
-                <button class="tab-btn" onclick="openTab(event, 'servicios')">Servicios</button>
-                <button class="tab-btn" onclick="openTab(event, 'contacto')">Contacto</button>
-            </div>
-            <div class="logo-container">
-                <img src="logo_crw_brt.png.png" class="brand-logo" alt="Logo">
-            </div>
-        </div>
-    </nav>
-
-    <section id="inicio" class="content-section active">
-        <h2>Bienvenido</h2>
-        <video class="main-video" controls autoplay muted loop>
-            <source src="presentacion app.mp4" type="video/mp4">
-        </video>
-        <p>En <strong>Criminal Watch & Blackster</strong> ofrecemos soluciones tecnológicas avanzadas para su seguridad.</p>
-    </section>
-
-    <section id="servicios" class="content-section">
-        <h2>Servicios</h2>
-        <div class="services-grid">
-            <div class="card">
+<section id="servicios" class="content-section">
+    <h2>Nuestros Servicios</h2>
+    <div class="services-grid">
+        
+        <div class="card card-wide">
+            <div class="card-header">
                 <i class="fas fa-shield-alt"></i>
-                <h3>Seguridad electrónica</h3>
-                <p>Agregamos cámaras de seguridad, cercado eléctrico, alarmas, GPS y monitoreo 24/7.</p>
+                <h3>Seguridad Electrónica</h3>
             </div>
-            <div class="card">
-                <i class="fas fa-search-plus"></i>
-                <h3>Peritaje informático</h3>
-                <p>Servicios especializados en análisis forense y recuperación de datos digitales.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-tools"></i>
-                <h3>Reparación de equipos de cómputo</h3>
-                <p>Soporte técnico integral en hardware y venta de software original.</p>
+            
+            <div class="sub-services-container">
+                <div class="sub-service">
+                    <img src="cctv.png" alt="Cámaras de Seguridad" class="service-img">
+                    <p><strong>Cámaras de Seguridad:</strong> Vigilancia en alta resolución y acceso remoto.</p>
+                </div>
+
+                <div class="sub-service">
+                    <img src="cercado electrico.png" alt="Cercado Eléctrico" class="service-img">
+                    <p><strong>Cercado Eléctrico:</strong> Protección perimetral activa con sensores de intrusión.</p>
+                </div>
+
+                <div class="sub-service">
+                    <img src="alarmas.png" alt="Alarmas" class="service-img">
+                    <p><strong>Alarmas:</strong> Sistemas inteligentes con alerta inmediata a dispositivos móviles.</p>
+                </div>
+
+                <div class="sub-service">
+                    <img src="GPS.png" alt="Rastreo GPS" class="service-img">
+                    <p><strong>GPS:</strong> Localización y rastreo de vehículos o activos en tiempo real.</p>
+                </div>
+
+                <div class="sub-service">
+                    <img src="MONITOREO 247.png" alt="Monitoreo 24/7" class="service-img">
+                    <p><strong>Monitoreo 24/7:</strong> Vigilancia constante y respuesta ante emergencias.</p>
+                </div>
             </div>
         </div>
-    </section>
 
-    <section id="contacto" class="content-section">
-        <h2>Contacto</h2>
-        <p><i class="fas fa-envelope"></i> cw.blackster@outlook.com</p>
-        <p><i class="fas fa-phone"></i> 56 5786 3967</p>
-    </section>
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-search-plus"></i>
+                <h3>Peritaje Informático</h3>
+            </div>
+            <p>Análisis forense digital para la obtención de evidencia técnica legal.</p>
+        </div>
 
-    <a href="https://wa.me/525657863967" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>&nbsp; Contactar Asesor
-    </a>
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-tools"></i>
+                <h3>Reparación y Software</h3>
+            </div>
+            <p>Reparación de hardware de cómputo y venta de software original.</p>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        &copy; 2026 Criminal Watch & Blackster
-    </footer>
-
-    <script>
-        function openTab(evt, tabName) {
-            var i, x, tablinks;
-            x = document.getElementsByClassName("content-section");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-                x[i].classList.remove("active");
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            document.getElementById(tabName).style.display = "block";
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-    </script>
-</body>
-</html>
+<style>
+    /* Estilos adicionales para que las imágenes se vean bien */
+    .sub-services-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .sub-service {
+        text-align: center;
+        background: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+    .service-img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    .card-wide {
+        grid-column: 1 / -1; /* Hace que la seguridad electrónica ocupe todo el ancho */
+    }
+</style>
