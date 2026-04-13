@@ -1,4 +1,109 @@
-<!DOCTYPE html>
+<section id="servicios" class="content-section">
+    <h2>Nuestros Servicios</h2>
+    <div class="services-grid">
+        
+        <div class="card card-wide">
+            <div class="card-header">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Seguridad Electrónica</h3>
+            </div>
+            
+            <div class="sub-services-container">
+                <div class="sub-service">
+                    <img src="cctv.png" alt="Cámaras" class="service-img">
+                    <p><strong>Cámaras de Seguridad:</strong> Vigilancia en alta resolución y acceso remoto.</p>
+                </div>
+
+                <div class="sub-service">
+                    <img src="cercado electrico.png" alt="Cercado" class="service-img">
+                    <p><strong>Cercado Eléctrico:</strong> Protección perimetral activa con sensores de intrusión.</p>
+                </div>
+
+                <div class="sub-service">
+                    <img src="alarmas.png" alt="Alarmas" class="service-img">
+                    <p><strong>Alarmas:</strong> Sistemas inteligentes con alerta inmediata a dispositivos móviles.</p>
+                </div>
+
+                <div class="sub-service">
+                    <img src="GPS.png" alt="GPS" class="service-img">
+                    <p><strong>GPS:</strong> Localización y rastreo de vehículos o activos en tiempo real.</p>
+                </div>
+
+                <div class="sub-service">
+                    <img src="MONITOREO 247.png" alt="Monitoreo" class="service-img">
+                    <p><strong>Monitoreo 24/7:</strong> Vigilancia constante y respuesta ante emergencias.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-wide">
+            <div class="card-header">
+                <i class="fas fa-search-plus"></i>
+                <h3>Peritaje Informático</h3>
+            </div>
+            <div class="sub-services-container">
+                <div class="sub-service">
+                    <img src="peritaje.png" alt="Peritaje Forense" class="service-img">
+                    <p>Análisis forense digital especializado para la obtención de evidencia técnica legal y recuperación de datos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-wide">
+            <div class="card-header">
+                <i class="fas fa-tools"></i>
+                <h3>Reparación de Equipos y Software</h3>
+            </div>
+            <div class="sub-services-container">
+                <div class="sub-service">
+                    <img src="reparacion.png" alt="Hardware" class="service-img">
+                    <p><strong>Reparación de Hardware:</strong> Mantenimiento preventivo y correctivo de equipos de cómputo.</p>
+                </div>
+                <div class="sub-service">
+                    <img src="software.png" alt="Software" class="service-img">
+                    <p><strong>Venta de Software:</strong> Licenciamiento original y configuración de sistemas operativos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Estilos para mantener la consistencia visual */
+    .services-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .sub-services-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .sub-service {
+        text-align: center;
+        background: #fdfdfd;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #eaeaea;
+        transition: 0.3s;
+    }
+    .sub-service:hover {
+        border-color: var(--primario-rojo);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .service-img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 12px;
+    }
+    .card-wide {
+        width: 100%;
+    }
+</style><!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
