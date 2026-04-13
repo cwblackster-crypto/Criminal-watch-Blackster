@@ -9,7 +9,7 @@
         :root {
             --primario-rojo: #CC0000;
             --gris-fondo: #F0F0F0;
-            --gris-nav: #1a1a1a; /* Un gris más oscuro para que resalten las letras blancas */
+            --gris-nav: #1a1a1a;
             --blanco: #FFFFFF;
             --texto: #222222;
         }
@@ -39,9 +39,7 @@
             padding: 0 20px;
         }
 
-        .tabs-wrapper {
-            display: flex;
-        }
+        .tabs-wrapper { display: flex; }
 
         .tab-btn {
             padding: 25px 20px;
@@ -54,23 +52,16 @@
             transition: 0.3s;
         }
 
-        .tab-btn.active {
-            background-color: var(--primario-rojo);
-        }
+        .tab-btn.active { background-color: var(--primario-rojo); }
 
         /* LOGO SUPERIOR DERECHA */
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
         .brand-logo {
-            height: 55px; /* Ajustado para que quepa bien en la barra */
+            height: 55px;
             width: auto;
             display: block;
         }
 
-        /* CONTENIDO */
+        /* CONTENIDO PRINCIPAL */
         .content-section {
             display: none;
             max-width: 900px;
@@ -87,19 +78,16 @@
             color: var(--primario-rojo); 
             border-left: 6px solid var(--primario-rojo);
             padding-left: 15px;
+            margin-top: 0;
         }
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            margin: 20px 0;
+        /* ESTILO PARA EL VIDEO LOCAL */
+        .main-video {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
             border: 2px solid #ddd;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            margin-bottom: 20px;
         }
 
         /* SERVICIOS */
@@ -155,38 +143,41 @@
     </nav>
 
     <section id="inicio" class="content-section active">
-        <h2>¿Quiénes Somos?</h2>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p>En <strong>Criminal Watch & Blackster</strong>, somos expertos en soluciones de seguridad electrónica y peritaje informático forense.</p>
+        <h2>Le presentamos SmartPanics</h2>
+        
+        <video class="main-video" controls autoplay muted loop>
+            <source src="presentacion app.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+        </video>
+
+        <p>En <strong>Criminal Watch & Blackster</strong>, revolucionamos su seguridad. Con la App SmartPanics, podrá enviar señales de emergencia atendidas por expertos, monitorear sus vehículos vía GPS y controlar sus alarmas en tiempo real directamente desde su smartphone.</p>
     </section>
 
     <section id="servicios" class="content-section">
         <h2>Servicios Profesionales</h2>
         <div class="services-grid">
             <div class="card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Seguridad Electrónica</h3>
-                <p>Cámaras, cercado eléctrico, alarmas y monitoreo 24/7.</p>
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Seguridad Móvil</h3>
+                <p>App SmartPanics para protección individual y familiar 24/7.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Monitoreo GPS</h3>
+                <p>Localización en tiempo real de vehículos, flotas y seres queridos.</p>
             </div>
             <div class="card">
                 <i class="fas fa-search-plus"></i>
                 <h3>Peritaje Informático</h3>
-                <p>Análisis forense digital y recuperación de evidencia.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-tools"></i>
-                <h3>Soporte Técnico</h3>
-                <p>Reparación de hardware y venta de software.</p>
+                <p>Análisis forense digital y recuperación de evidencia legal.</p>
             </div>
         </div>
     </section>
 
     <section id="contacto" class="content-section">
         <h2>Contacto</h2>
-        <p>Email: cw.blackster@outlook.com</p>
-        <p>Teléfono: 56 5786 3967</p>
+        <p><i class="fas fa-envelope"></i> cw.blackster@outlook.com</p>
+        <p><i class="fas fa-phone"></i> 56 5786 3967</p>
     </section>
 
     <a href="https://wa.me/525657863967" class="whatsapp-btn" target="_blank">
